@@ -1,4 +1,2 @@
-currently at: https://craftinginterpreters.com/scanning.html#challenges
-attempt challenge 4
-make a new branch for it
+currently at: https://craftinginterpreters.com/parsing-expressions.html#the-parser-class
 
