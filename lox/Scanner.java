@@ -78,6 +78,9 @@ class Scanner {
 					  if (match('/')) {
 						  // A comment goes until the end of the line.
 						  while (peek() != '\n' && !isAtEnd()) advance();
+					  } else if (match('*')) {
+					      while (peek() != '/' && !isAtEnd()) advance();
+						  advance();
 					  } else {
 						  addToken(SLASH);
 					  }
@@ -113,10 +116,10 @@ class Scanner {
 	private void identifier() {
 		while (isAlphaNumeric(peek())) advance();
 
-    String text = source.substring(start, current);
-    TokenType type = keywords.get(text);
-    if (type == null) type = IDENTIFIER;
-    addToken(type);
+		String text = source.substring(start, current);
+		TokenType type = keywords.get(text);
+		if (type == null) type = IDENTIFIER;
+		addToken(type);
 
 	}
 
